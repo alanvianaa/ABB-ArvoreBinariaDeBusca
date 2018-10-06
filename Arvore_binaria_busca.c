@@ -1,9 +1,8 @@
 /******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
+                           Arvore Binária de Busca
+                           Algoritimo simples e sem frecura.
+                           Por: Alan Viana
+Função Inserir e Imprimir em pre-ordem, em ordem e em pós-Ordem
 *******************************************************************************/
 
 #include <stdio.h>
@@ -26,12 +25,22 @@ NO *inserir(NO *raiz,NO *p){
         else inserir(raiz->esq,p);
     }
 }
+void imprimePreOrdem(NO *raiz){ 
+    printf("%d ",raiz->chave);
+    if(raiz->esq != NULL) imprime(raiz->esq);
+    if(raiz->dir != NULL) imprime(raiz->dir);
+}
 
-void imprime(NO *raiz){
-    
+void imprimeOrdem(NO *raiz){ 
     if(raiz->esq != NULL) imprime(raiz->esq);
     printf("%d ",raiz->chave);
     if(raiz->dir != NULL) imprime(raiz->dir);
+}
+
+void imprimePosOrdem(NO *raiz){ 
+    if(raiz->esq != NULL) imprime(raiz->esq);
+    if(raiz->dir != NULL) imprime(raiz->dir);
+    printf("%d ",raiz->chave);
 }
 
 int main()
@@ -39,10 +48,8 @@ int main()
     NO *raiz;
     raiz = NULL;
     NO *p;
-    
     int valor[5]={3,6,8,2,10};
     for(int i=0;i<5;i++){
-        
         p=(NO*) malloc(sizeof(NO)); 
         p->chave=valor[i];
         p->dir = NULL;
@@ -51,7 +58,7 @@ int main()
         else inserir(raiz,p);
     }
     
-    imprime(raiz);
+    imprimeOrdem(raiz);
     
     return 0;
 }
