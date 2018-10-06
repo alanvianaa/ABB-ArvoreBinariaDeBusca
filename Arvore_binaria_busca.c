@@ -14,7 +14,7 @@ typedef struct no{
     struct no *esq;
 }NO;
 
-NO *inserir(NO *raiz,NO *p){
+void inserir(NO *raiz,NO *p){
 
     if(p->chave > raiz->chave){ 
         if(raiz->dir == NULL) raiz->dir = p;
