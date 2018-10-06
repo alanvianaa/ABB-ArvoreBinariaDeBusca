@@ -3,6 +3,7 @@
                            Algoritimo simples e sem frecura.
                            Por: Alan Viana
 Função Inserir e Imprimir em pre-ordem, em ordem e em pós-Ordem
+e a função buscar
 *******************************************************************************/
 
 #include <stdio.h>
@@ -41,6 +42,12 @@ void imprimePosOrdem(NO *raiz){
     if(raiz->esq != NULL) imprime(raiz->esq);
     if(raiz->dir != NULL) imprime(raiz->dir);
     printf("%d ",raiz->chave);
+}
+
+void buscar(NO *raiz, int chave){
+    if(raiz->chave == chave) printf("Achou");
+    if(chave > raiz->chave && raiz->dir != NULL) buscar(raiz->dir,chave);
+    if(chave < raiz->chave && raiz->esq != NULL) buscar(raiz->esq,chave);
 }
 
 int main()
