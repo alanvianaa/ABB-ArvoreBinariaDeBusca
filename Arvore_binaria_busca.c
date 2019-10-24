@@ -50,18 +50,31 @@ void buscar(NO *raiz, int chave){
     if(chave < raiz->chave && raiz->esq != NULL) buscar(raiz->esq,chave);
 }
 
+void init(NO* raiz){ // inicializa árvore -- nó raiz
+    raiz = NULL;
+}
+
+int nula(NO* raiz){ // verifica se árvore está vazia
+    if(raiz == NULL) 
+        return 1; // true para nulo 
+    else 
+        return 0;
+}
+
 int main()
 {
-    NO *raiz;
-    raiz = NULL;
+    NO *raiz;    
     NO *p;
+
+    init(raiz);
+
     int valor[5]={3,6,8,2,10};
     for(int i=0;i<5;i++){
         p=(NO*) malloc(sizeof(NO)); 
         p->chave=valor[i];
         p->dir = NULL;
         p->esq = NULL;
-        if(raiz == NULL) raiz = p;
+        if(nula(raiz)) raiz = p;
         else inserir(raiz,p);
     }
     
